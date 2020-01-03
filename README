@@ -12,9 +12,9 @@
 npm start
 ```
 
-2. 如果之前没有绑定本地域名local.mc.hujiang.com，则修改/etc/hosts
+2. 如果之前没有绑定本地域名local.domain.com，则修改/etc/hosts
 
-3. 在浏览器中访问http://local.mc.hujiang.com:8080/demos
+3. 在浏览器中访问http://local.domain.com:8080/demos
 
 发布命令
 ```
