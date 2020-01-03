@@ -1,0 +1,112 @@
+@import 'mixins.scss';
+
+$rowHeight: fx3(30);
+
+.hide {
+    display: none !important;
+}
+
+.address-chooser-widget {
+    background-color: white;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    z-index: 10000;
+}
+
+.header-wrapper {
+    position: relative;
+    &:after {
+        @include seperatorLine('bottom');
+    }
+}
+
+.header {
+    padding: fx3(16) fx3(8);
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    color: #2a8fe0;
+    font-size: fx3(16);
+    text-decoration: none;
+}
+
+.selection-wrapper {
+    position: relative;
+    height: $rowHeight * 5;
+}
+
+
+.province-column-container,
+.city-column-container,
+.district-column-container,
+.column-container {
+    display: flex;
+    position: relative;
+    z-index: 5;
+    height: 100%;
+}
+
+.column {
+    width: 33.3%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.area-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    perspective: 600px;
+}
+
+.area-entry {
+    font-size: fx3(14);
+    line-height: $rowHeight;
+    height: $rowHeight;
+    color: black;
+    text-align: center;
+    padding: 0 fx3(4);
+    @include textEllipse(100%);
+    // @for $i from 1 through 30 {
+    //     &:nth-child(#{$i}) {
+    //         transform: rotateX(($i - 1) * -10deg);
+    //     }
+    // }
+}
+
+
+.top-shadow {
+    background: linear-gradient(0deg, rgba(255, 255, 255, .5) 0%, white 100%);
+    height: $rowHeight * 2;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.bottom-shadow {
+    background: linear-gradient(180deg, rgba(255, 255, 255, .5) 0%, white 100%);
+    height: $rowHeight * 2;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.middle-grey {
+    border-top: 1px solid #eee;
+    background-color: #f4f2f8;
+    border-bottom: 1px solid #eee;
+    height: $rowHeight;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: $rowHeight * 2;
+    z-index: 1;
+}

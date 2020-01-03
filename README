@@ -1,0 +1,50 @@
+1. static type checker - typescript
+2. lint tslint
+3. widget spec
+4. webpack (async & tree-shaking & widget version control & pwa)
+5. mixins
+6. test (e2e and ut)
+
+如何运行demo？
+
+1. 运行：
+```
+npm start
+```
+
+2. 如果之前没有绑定本地域名local.mc.hujiang.com，则修改/etc/hosts
+
+3. 在浏览器中访问http://local.mc.hujiang.com:8080/demos
+
+发布命令
+```
+npm run package -- [package1@version1,package2@version2,...]
+```
+
+命令行参数说明
+
+待发布组件或库的名称，一次发布多个库用英文逗号分隔，位于widgets或libs目录下，名称后加上@可以指定发布版本
+
+每次发布时，需要填写CHANGELOG.md，然后在release代码时生成的最终文件名为package-v{version}-{hash}
+
+找到路径，生成entry项
+
+模块类型是否需要区分开发环境？需要，因为demo是通过直接模块引用的方式；在发布模式，需要让用户能够直接引用脚本的链接，则可以使用。
+发布模式：umd
+
+library: {package-name}
+libraryTarget: umd
+
+每个widget/使用库输出在独立目录，方便发布，例如：
+alert/
+    v[mainVersion].[hash].js
+    v[mainVersion].[hash].css
+    img/
+
+unit test
+
+如何调试指定单元测试？
+tests/目录下包含.spec.的文件用于单元测试，在指定文件里打上断点，然后按下F5，则可以调试当前单元测试。
+
+如何运行单元测试？
+```npm run test```

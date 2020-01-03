@@ -1,0 +1,28 @@
+@import 'mixins.scss';
+
+.loading-widget {
+    position: absolute;
+    top: -1rem;
+    left: 0;
+    right: 0;
+    bottom: -1rem;
+    background: rgba(0, 0, 0, .5);
+    z-index: 300;
+}
+
+.loading {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 4rem;
+    margin: -3rem 0 0 -2rem;
+    padding: 1.8rem 0 .4rem;
+    background: url('./img/loading.gif') no-repeat center .5rem hsla(0, 0%, 100%, .9);
+    background-size: auto 1rem;
+    border-radius: .3rem;
+    text-align: center;
+    font-size: fx3(14);
+    p {
+        margin: fx3(8) 0 0 0;
+    }
+}

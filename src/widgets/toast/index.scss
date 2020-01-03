@@ -1,0 +1,62 @@
+@import 'mixins.scss';
+
+.sweet-overlay {
+    background-color: black;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+    filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+    /*ie4-ie9*/
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: block;
+    z-index: 10000;
+}
+
+.mask-hide {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    /*ie4-ie9*/
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.sweet-toast .content {
+    display: inline-block;
+    padding: fx3(11) fx3(24) fx3(13) fx3(24);
+    line-height: fx3(22);
+    font-size: fx3(16);
+    border-radius: fx3(4);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    max-width: 80%;
+    box-sizing: border-box;
+    font-weight: normal;
+    p {
+        margin: 0;
+    }
+}
+
+.sweet-toast {
+    z-index: 11000;
+    position: fixed;
+    left: 0;
+    top: 50%;
+    margin-top: fx3(-23);
+    width: 100%;
+    text-align: center;
+}
+
+.sweet-toast .content {
+    display: inline-block;
+    padding: fx3(11) fx3(24) fx3(13) fx3(24);
+    line-height: fx3(22);
+    font-size: fx3(16);
+    border-radius: fx3(4);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    max-width: 80%;
+    box-sizing: border-box;
+    font-weight: normal;
+}

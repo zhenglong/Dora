@@ -1,0 +1,53 @@
+@import 'mixins.scss';
+.hjshare-list-wrapper {
+    padding: fx2(18) 0;
+}
+.share-header {
+    color: #333;
+    font-size: fx3(16);
+    line-height: fx3(22);
+    height: fx3(22);
+    padding-left: fx3(36);
+    position: relative;
+
+    &:before {
+        content: '';
+        display: block;
+        height: fx3(12);
+        width: 2px;
+        position: absolute;
+        top: 50%;
+        margin-top: fx3(-6);
+        left: fx3(19);
+        background-color: #ff6600;
+    }
+}
+.input-button-wrapper {
+    margin: fx3(22) 0 0 0;
+    position: relative;
+    padding: 0 fx3(19);
+}
+ .txt-share-url {
+     display: block;
+     border-radius: 4px;
+     border: 1px solid #ccc;
+     height: fx3(40);
+     line-height: fx3(40);
+     padding: 0 fx3(100) 0 fx3(14);
+     color: #33383d;
+     width: 100%;
+     box-sizing: border-box;
+ }
+ .hjshare-btn-copy {
+     position: absolute;
+     right: fx3(19);
+     top: 0;
+     height: fx3(40);
+     line-height: fx3(40);
+     width: fx3(100);
+     border-left: 1px solid #ccc;
+     color: #ff6600;
+     text-align: center;
+     font-size: fx3(14);
+     text-decoration: none;
+ }

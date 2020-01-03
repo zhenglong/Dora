@@ -1,0 +1,15 @@
+<div class="{{styles.alert-widget}}">
+    <div class="{{styles._masker}}"></div>
+    <div class="{{styles._dialog}}">
+        <div class="{{styles._header}}">
+            <p class="{{styles._title}}">{{title}}</p>
+            <a class="{{styles._close}}"></a>
+        </div>
+        <div class="{{styles._body}} {{styles.scrollbd}}">{{body}}</div>
+        <div class="_foot">
+        {{#buttons}}
+        <a class="{{styles.btn}}" href="{{href}}">{{text}}</a>
+        {{/buttons}}
+        </div>
+    </div>
+</div>

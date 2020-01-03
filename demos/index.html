@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html class="root" lang="zh" style="font-size:37.5px;">
+<head>
+    <meta charset="utf-8" />
+    <title>DEMO - mobile</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="x-ua-compatible" content="ie=Edge" />
+    <meta name="full-screen" content="yes" />
+    <meta name="screen-orientation" content="portrait" />
+    <meta name="browsermode" content="application" />
+    <meta name="x5-orientation" content="portrait" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="x5-page-mode" content="app" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta http-equiv="cleartype" content="on" />
+    <!-- 解决手机端UC旋转后文字变大的bug -->
+    <meta name="wap-font-scale" content="no"> 
+    <style>
+    html,body{
+        margin: 0;
+        padding:0;
+        height:100%;
+        background-color: #efefef;
+        overflow: hidden;
+    }
+    #output {
+        height: 300px;
+        word-break: break-all;
+        overflow:auto;
+        font-size:14px;
+        border: 1px solid #dfdfdf;
+        -webkit-overflow-scrolling: touch;
+    }
+    #btn-clear {
+        display:block;
+        width: 100%;
+        line-height: 30px;
+        height: 30px;
+        background-color: #49b849;
+        outline: 0;
+        border: none;
+        color: white;
+    }
+    #btn-lottery,#btn-share {
+        width: 100%;
+        background-color: #49b849;
+        outline: 0;
+        border: 0;
+        height: 30px;
+        line-height: 30px;
+        color: white;
+        display: block;
+        margin-top: 20px;
+    }
+    </style>
+</head>
+<body>
+	<div id="hj-app">
+    </div>
+    <div id="output">
+    </div>
+    <button type="button" id="btn-clear">clear</button>
+    <hr/>
+    <button type="button" id="btn-lottery">抽奖</button>
+    <button type="button" id="btn-share">分享</button>
+
+    <script src="http://res.hjfile.cn/js/lib/jq/1.8.3/jquery.min.js"></script>
+    <script crossorigin src="https://cdn.bootcss.com/react/16.8.4/umd/react.development.js"></script>
+    <script crossorigin src="https://cdn.bootcss.com/react-dom/16.8.4/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://cdn.bootcss.com/redux/4.0.1/redux.js"></script>
+    <script crossorigin src="https://cdn.bootcss.com/react-redux/6.0.1/react-redux.js"></script>
+    <script crossorigin src="https://cdn.bootcss.com/mustache.js/3.0.1/mustache.js"></script>
+    <script>
+    var server_data = {
+        share_title: '测试标题',
+        share_desc: '测试描述',
+        share_img: 'https://n1image.hjfile.cn/zhuanti/2019/04/04/5e397a0cc2e0ced31fcdba7c2999155c.png'
+    };
+    </script>
+    <script src="http://local.mc.hujiang.com:8080/entry/bundle.js"></script>
+    <script>
+    $(function() {
+        $('#btn-clear').on('click', function() {
+            $('#output').html('');
+        });
+        $('#btn-lottery').on('click', function() {
+            window.lottery({
+                TopicID: 93868,
+                AreaID: 10159
+            });
+        });
+        $('#btn-share').on('click', function() {
+            // window.share.reset({});
+            window.share.act();
+        });
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "removeComments": true,
+        "target": "es5",
+        "module": "CommonJS",
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "typeRoots": ["./node_modules/@types", "./src/types"],
+        "jsx": "react"
+    }
+}

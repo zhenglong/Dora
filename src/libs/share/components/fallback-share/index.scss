@@ -1,0 +1,74 @@
+@import 'mixins.scss';
+
+%share-icon {
+    display: inline-block;
+    background-image: url('./images/icons.png');
+    background-repeat: no-repeat;
+    background-size: auto fx3(46);
+    width: fx3(50);
+    height: fx3(50);
+}
+
+.hjshare-list-wrapper {
+    padding: fx2(18) 0;
+}
+.hjshare-list {
+    list-style: none;
+    font-size: 0;
+    padding: 0;
+    margin: 0;
+
+    li {
+        width: 20%;
+        display: inline-block;
+        text-align: center;
+        font-size: fx3(14);
+    }
+}
+
+.share-icon-sina {
+    @extend %share-icon;
+    background-position: fx3(-47) 0;
+}
+
+.share-icon-qzone {
+    @extend %share-icon;
+    background-position: fx3(-199) 0;
+}
+
+.share-icon-circle {
+    @extend %share-icon;
+    background-position: fx3(2) 0;
+}
+
+.share-icon-qq {
+    @extend %share-icon;
+    background-position: fx3(-98) 0;
+}
+
+.share-icon-friend {
+    @extend %share-icon;
+    background-position: fx3(-148) 0;
+}
+
+.tip_in_weixin {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 150px;
+    height: 90px;
+    background: url("./images/wxtip.png") 0 0 no-repeat;
+    background-size: 150px auto;
+    z-index: 23000;
+}
+.hjshare-btn-close {
+    display: block;
+    padding: fx3(8) 0;
+    text-align: center;
+    position: relative;
+    font-size: fx3(14);
+
+    &:before {
+        @include seperatorLine('top');
+    }
+}
