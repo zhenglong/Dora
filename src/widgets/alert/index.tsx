@@ -135,7 +135,7 @@ class AlertWidgetInner extends React.Component<AlertOptions, InternalStateDataMo
         });
         // 键盘消失-ios第三方
         // safari wx浏览器
-        if (!hjc.isandroid) {
+        if (!dorac.isandroid) {
             // 针对ios的第三方键盘：键盘消失
             $(document.body).on('focusout.alert-widget', 'input,textarea', () => {
                 $(window).scrollTop(0);

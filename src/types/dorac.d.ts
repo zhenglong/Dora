@@ -29,13 +29,12 @@ interface LoadingOptions {
     msg?: string;
 }
 
-interface HjcInterface {
+interface DoracInterface {
     ismc: boolean;
     isandroid: boolean;
     isios: boolean;
     alert: (opts: AlertOptions) => void;
     hideAlert: () => void;
-    sendCustomEvent(eventId: string, params: any): void;
     loading: (msg?: string)=> void;
     hideLoading: () => void;
     /**
@@ -87,7 +86,7 @@ interface LotteryOptions {
     resultAlertTemplate: any;
 }
 
-declare var hjc: HjcInterface;
+declare var dorac: DoracInterface;
 
 declare var server_data: ServerDataModel;
 

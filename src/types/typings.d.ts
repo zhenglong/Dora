@@ -17,12 +17,12 @@ declare module NodeJS {
     interface Global {
         $: any;
         jQuery: any;
-        hjc: any;
+        dorac: any;
     }
 }
 
 interface Window {
-    hjc: any;
+    dorac: any;
     debug: (desc: string) => void;
     lottery: any;
     share: StandaloneUtility;
@@ -36,21 +36,6 @@ interface Window {
      * 
      */
     wxshare?: any;
-    /**
-     * 沪江app内web容器注入的全局对象
-     * 
-     */
-    HJApp?: any;
-    /**
-     * 沪江app内web容器上的原生导航栏分享按钮点击时间
-     * 
-     */
-    appshare: () => void;
-    /**
-     * hj-jssdk注入的对象
-     * 
-     */
-    HJSDK: any;
     /**
      * 部分国产浏览器会注入全局对象
      * 

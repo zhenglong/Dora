@@ -1,7 +1,7 @@
 {
   "name": "dora",
   "version": "1.0.0",
-  "description": "魔盒V2.0基础建设",
+  "description": "基础建设V2.0",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -36,7 +36,7 @@
     "jest": "^24.5.0",
     "jquery": "^3.4.0",
     "mini-css-extract-plugin": "^0.5.0",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.13.0",
     "postcss-loader": "^3.0.0",
     "prettier": "^1.17.0",
     "px2rem-loader": "^0.1.9",

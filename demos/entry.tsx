@@ -39,16 +39,13 @@ const obj = {
         });
     },
     hideLoading: LoadingWidget.unref(loadingWidget).hide,
-    sendCustomEvent: (eventId: string, params: any) => {
-        console.log(`${eventId} ${params}`);
-    },
     showToast: ToastWidget.unref(toastWidget).show
 };
 
 console.log(`loading widget version: ${BaseWidget.versionOf(LoadingWidget)}`);
 console.log(`alert widget version: ${BaseWidget.versionOf(AlertWidget)}`);
 
-window.hjc = obj;
+window.dorac = obj;
 
 window.debug = debug;
 

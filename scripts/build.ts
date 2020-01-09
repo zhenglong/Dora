@@ -13,12 +13,12 @@ import { ENV_PACKAGE_NAME } from './internal/env-def';
 const projectRoot = path.resolve(__dirname, '../');
 const isDevMode = process.env.NODE_ENV == 'development';
 const port = 8080;
-const domainName = 'local.mc.hujiang.com';
+const domainName = 'local.domain.com';
 
 import global from './internal/singleton';
 
 function initVersionMap() {
-    let packageNames = process.env.argv;
+    let packageNames = process.env.argv || '';
     let splittings = packageNames.split(',');
 
     let { versionMapping } = global.instance();
@@ -152,8 +152,8 @@ if (isDevMode) {
         hot: true,
         compress: true,
         proxy: {
-            '/classtopic': {
-                target: 'https://qamc.hujiang.com',
+            '/api': {
+                target: 'http://localhost:3000',
                 secure: false,
                 changeOrigin: true
             }

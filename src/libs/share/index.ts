@@ -105,20 +105,17 @@ export default class McShare implements StandaloneUtility {
 
         this.qqBrowserShare = this.qqBrowserShare.bind(this);
         this.ucBrowserShare = this.ucBrowserShare.bind(this);
-        this.appShare = this.appShare.bind(this);
     }
 
     act(): void {
         if (this.isInitScriptLoading) {
-            hjc.showToast(utilityNotReadyMsg);
+            dorac.showToast(utilityNotReadyMsg);
             return;
         }
         this.isInitScriptLoading = true;
-        if (config.isapp && window.HJApp) {
-            // 如果是沪江app，且支持hjapp对象，直接弹出分享面板-
-            this.loadIfNot(hjsdkUrl, () => {
-                this.appShare();
-            });
+        if (config.isapp) {
+            // TODO: load app js sdk
+            throw new Error('not supported');
         } else {
             if (isweixin) {
                 this.fallbackShareWidgetRunnerResult = 
@@ -151,7 +148,7 @@ export default class McShare implements StandaloneUtility {
     onShareItemClick(e: React.MouseEvent): void {
         let shareType = $(e.currentTarget).data('type');
         if (this.isInitScriptLoading) {
-            hjc.showToast('分享插件正在初始化中，请稍后重试');
+            dorac.showToast('分享插件正在初始化中，请稍后重试');
             return;
         }
 
@@ -217,49 +214,6 @@ export default class McShare implements StandaloneUtility {
         }
     }
 
-    /**
-     * 重置webview右上角的原生分享按钮的样式和回调方法
-     * 
-     */
-    resetAppShare() {
-        if (!window.HJApp) {
-            return;
-        }
-        let { afterShareCallback } = this;
-        window.appshare = () => {
-            if (!window.HJSDK) {
-                hjc.showToast(utilityNotReadyMsg);
-                return;
-            }
-            let {shareInfo: {title, description, link, imgUrl}} = this;
-            let data = {
-                title,
-                description,
-                link,
-                imageUrl: imgUrl
-            };
-            window.HJSDK.invoke('service_share', data, ({ platform }) => {
-                if (afterShareCallback) {
-                    afterShareCallback(platform, targets[platform || '']);
-                }
-            });
-        };
-
-        let sharebtn = "share";
-        if (!/android/i.test(navigator.userAgent)) {
-            let m = /class\/([\d.]+)\/hjclass/i.exec(navigator.userAgent);
-            let v = m ? m[1] : '';
-            if (v < '4.5') {
-                sharebtn = "https://n1image.hjfile.cn/zhuanti/2017/07/11/43da11ce09a2251f7da0d126ab826882.png";
-            }
-        }
-        // tslint:disable:no-string-literal
-        window.HJApp['navigator_setAction'](
-            '{"data":[{"icon":"' + sharebtn + '","title":"share","actionName":"appshare"}]}', 'function(){}'
-        );
-        // tslint:enable
-    }
-
     qqBrowserShare(tp: string): boolean {
         let toAppVal = {
             sina: 11,
@@ -311,22 +265,6 @@ export default class McShare implements StandaloneUtility {
             window.ucbrowser.web_share(title, title, link, to_app, "", "@" + from, "");
         }
         return true;
-    }
-
-    appShare(): void {
-        let { title, description, imgUrl, link } = this.shareInfo;
-        let data = {
-            title,
-            description,
-            imageUrl: imgUrl,
-            link
-        };
-        window.HJSDK.invoke('service_share', data, ({ platform }) => {
-            let { afterShareCallback } = this;
-            if (afterShareCallback) {
-                afterShareCallback(platform, targets[platform]);
-            }
-        });
     }
 
     getLink(tp: string) {

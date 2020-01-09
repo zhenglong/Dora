@@ -37,12 +37,12 @@ export default class ClipboardFormTemplate
                 this.clipboard.destroy();
                 this.clipboard = null;
                 ClipboardFormTemplate.unref(this).onClose();
-                hjc.showToast('复制成功');
+                dorac.showToast('复制成功');
             });
             this.clipboard.on('error', () => {
                 this.clipboard.destroy();
                 this.clipboard = null;
-                hjc.showToast('请选择"拷贝"进行复制');
+                dorac.showToast('请选择"拷贝"进行复制');
             });
         });
     }
@@ -56,7 +56,7 @@ export default class ClipboardFormTemplate
 
     onCopy() {
         if (!this.isResourceLoaded) {
-            hjc.showToast('复制组件正在初始化中，请稍候');
+            dorac.showToast('复制组件正在初始化中，请稍候');
             return;
         }
     }

@@ -143,7 +143,7 @@ export default class LotteryInputFormWidget extends React.Component<LotteryInput
             this.props.onCompleted();
             this.showSuccessAlert();
         }, ([msg]) => {
-            hjc.alert({
+            dorac.alert({
                 title: 'SORRY~',
                 body: msg || '信息提交失败，请联系客服MM~',
                 buttons: [{
@@ -155,20 +155,20 @@ export default class LotteryInputFormWidget extends React.Component<LotteryInput
 
     showSuccessAlert() {
         let {cname} = this.props;
-        if (hjc.ismc) {
-            hjc.alert({
+        if (dorac.ismc) {
+            dorac.alert({
                 title: '恭喜您已提交成功',
                 body: <div className={styles['mc-success']}>网校君将尽快为您寄出奖品！</div>,
                 buttons: [{
                     text: '炫耀一下',
                     click: () => {
-                        hjc.hideAlert();
+                        dorac.hideAlert();
                         window.share.act();
                     }
                 }]
             });
         } else {
-            hjc.alert({
+            dorac.alert({
                 title: '',
                 body: <div className={styles.success}>
                     <div className={styles['s-line-block']}><img src={ImgSuccess} alt="" /></div>
@@ -179,7 +179,7 @@ export default class LotteryInputFormWidget extends React.Component<LotteryInput
                 buttons: [{
                     text: '炫耀一下',
                     click: () => {
-                        hjc.hideAlert();
+                        dorac.hideAlert();
                         window.share.act();
                     }
                 }]

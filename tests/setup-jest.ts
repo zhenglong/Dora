@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 global.$ = global.jQuery = $;
-global.hjc = {
+global.dorac = {
     isios: false,
 
     alert: () => {},
@@ -10,8 +10,5 @@ global.hjc = {
        
     },
     hideLoading: () => {},
-    sendCustomEvent: (eventId: string, params: any) => {
-        console.log(`${eventId} ${params}`);
-    },
     showToast: () => {}
 }

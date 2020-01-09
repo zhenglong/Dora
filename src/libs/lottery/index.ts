@@ -66,11 +66,6 @@ export default class Lottery implements StandaloneUtility {
         }).then(res => {
             // 成功打点
             let data = res.data;
-            hjc.sendCustomEvent('topic_lottory_success', {
-                TopicID: this.options.TopicID,
-                AreaID: this.options.AreaID,
-                RecordId: data.recordId
-            });
 
             this.ActivityId = data.activityId;
             return $.extend({}, {
@@ -89,12 +84,12 @@ export default class Lottery implements StandaloneUtility {
         if (this.isDoing) {
             return;
         }
-        hjc.loading('玩命抽奖中...');
+        dorac.loading('玩命抽奖中...');
         this.isDoing = true;
         this.queryRecords().then(resFlagObj => {
             // 上一次抽奖没有填写地址
             if (resFlagObj.NotFillAddressFlag) {
-                hjc.hideLoading();
+                dorac.hideLoading();
                 this.ActivityId = resFlagObj.activityId;
                 let $curPrize = $('[data-code="' + resFlagObj.prizeCode + '"]');
                 let prizeName: string = $curPrize.data('name');
@@ -114,7 +109,7 @@ export default class Lottery implements StandaloneUtility {
                 });
             } else {
                 this.lotteryAsync().then(res_data => {
-                    hjc.hideLoading();
+                    dorac.hideLoading();
                     this.getLastTime = new Date().getTime();
                     // 接口调用时间
                     let during_time = this.getLastTime - this.getBeginTime;
@@ -150,8 +145,8 @@ export default class Lottery implements StandaloneUtility {
                 });
             }
         }, ([msg]) => {
-            hjc.hideLoading();
-            hjc.alert({
+            dorac.hideLoading();
+            dorac.alert({
                 body: msg || '服务器出错啦~'
             });
             this.isDoing = false;
