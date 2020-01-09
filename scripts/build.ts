@@ -4,6 +4,7 @@ import webpack, { Entry } from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import WebpackHotMiddleware from 'webpack-hot-middleware';
+import {spawn} from 'child_process';
 
 import PlaceholderInjectorPlugin from './plugins/placeholder-injector-plugin';
 import MoveImagePlugin from './plugins/move-image-plugin';
@@ -148,6 +149,8 @@ if (!isDevMode) {
 const webpackInstance = webpack(options);
 
 if (isDevMode) {
+    console.log(`node ${path.join(projectRoot, 'demos', 'app.js')}`);
+    spawn('node', [path.join(projectRoot, 'demos', 'app.js')]);
     let server = new WebpackDevServer(webpackInstance, {
         hot: true,
         compress: true,
@@ -165,6 +168,7 @@ if (isDevMode) {
     server.listen(port, domainName, () => {
         console.log('listening');
     });
+    
 } else {
     webpackInstance.run((err, stats) => {
         if (err) {

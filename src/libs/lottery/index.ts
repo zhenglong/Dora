@@ -6,9 +6,9 @@ import { LotteryInputFormProps } from '../../widgets/lottery-input-form';
 
 const config = {
     // 抽奖动作-
-    lotteryApi: '/classtopic/handler/lottery',
+    lotteryApi: '/api/lottery',
     // 查询我的奖品-
-    lotteryRecordsApi: '/classtopic/handler/lotteryRecords',
+    lotteryRecordsApi: '/api/lottery/records',
 };
 
 interface RenderTipsDataModel {
@@ -40,21 +40,8 @@ export default class Lottery implements StandaloneUtility {
             AreaID: this.options.AreaID
         }).then(res => {
             let resObj = {
-                NotFillAddressFlag: false
+                noAddr: true
             };
-            let data = res.data;
-            if (data && data.length > 0) {
-                $.each(data, (i, val) => {
-                    if (val.isReal && !val.userContactstruts && !resObj.NotFillAddressFlag) {
-                        resObj = $.extend({}, val, {
-                            NotFillAddressFlag: true
-                        });
-                    }
-                    return true;
-                });
-            } else {
-                resObj.NotFillAddressFlag = false;
-            }
             return resObj;
         });
     }
@@ -88,7 +75,7 @@ export default class Lottery implements StandaloneUtility {
         this.isDoing = true;
         this.queryRecords().then(resFlagObj => {
             // 上一次抽奖没有填写地址
-            if (resFlagObj.NotFillAddressFlag) {
+            if (resFlagObj.noAddr) {
                 dorac.hideLoading();
                 this.ActivityId = resFlagObj.activityId;
                 let $curPrize = $('[data-code="' + resFlagObj.prizeCode + '"]');

@@ -3,7 +3,7 @@ import {HjAction} from "../base-widget";
 import { AreaInfo } from "./types";
 
 import Ajax from '../..//mixins/ajax';
-const API_ADDRESS = '/classtopic/handler/address';
+const API_ADDRESS = '/api/address';
 
 interface AreaResponseData {
     area_name: string;
