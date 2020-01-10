@@ -31,8 +31,8 @@ export default class FallbackShareTemplate
             <Modal {...props} ref={this.modalRef}>
                 {
                     isweixin ? <div className={styles.tip_in_weixin}></div> :
-                        <section className={styles["hjshare-list-wrapper"]}>
-                            <ul className={styles["hjshare-list"]}>
+                        <section className={styles["share-list-wrapper"]}>
+                            <ul className={styles["share-list"]}>
                                 {
                                     (ways && ways.length && ways.map((item: string[]) => {
                                         return (

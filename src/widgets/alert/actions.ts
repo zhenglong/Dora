@@ -1,7 +1,7 @@
 import ActionTypes from "./action-types";
-import {HjAction} from "../base-widget";
+import {DoraAction} from "../base-widget";
 
-export function updateState(data): HjAction<AlertOptions> {
+export function updateState(data): DoraAction<AlertOptions> {
     return {
         type: ActionTypes.UPDATE_STATE,
         data

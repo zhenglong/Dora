@@ -1,6 +1,6 @@
 @import 'mixins.scss';
 
-.hjshare-wrap {
+.share-wrap {
     position: fixed;
     top: 0;
     left: 0;
@@ -9,7 +9,7 @@
     z-index: 6000;
 }
 
-.hjshare-mask {
+.share-mask {
     position: absolute;
     top: 0;
     left: 0;
@@ -19,7 +19,7 @@
     opacity: .7;
 }
 
-.hjshare-content {
+.share-content {
     position: absolute;
     left: 0;
     width: 100%;

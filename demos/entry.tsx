@@ -18,7 +18,7 @@ ReactDOM.render(
         <LoadingWidget ref={loadingWidget} />
         <Toast ref={toastWidget} />
     </div>,
-    document.getElementById('hj-app')
+    document.getElementById('app')
 );
 
 function debug(desc: string) {

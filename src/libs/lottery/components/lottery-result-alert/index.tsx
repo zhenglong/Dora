@@ -52,22 +52,20 @@ export default class LotteryResultAlertTemplate extends React.Component<LotteryR
         let { msg } = this.props;
         let body = '';
         switch (msg) {
-            case 'NoRight':
+            case 'permission deny':
                 this.title = 'SORRY~';
                 this.buttons = [{
                     text: '我知道了'
                 }];
                 body = '抽奖失败，您没有权限抽奖！';
                 break;
-            case 'NoChance':
+            case 'no chance':
                 body = '您没有多余机会抽奖咯~';
                 break;
-            case 'NotStart':
-            case 'NotStarted':
+            case 'not started':
                 body = '抽奖未开始，请耐心等候~';
                 break;
-            case 'IsEnd':
-            case 'AlreadyOver':
+            case 'end':
                 body = '抽奖已结束，欢迎下次再来';
                 break;
             default:
@@ -81,7 +79,7 @@ export default class LotteryResultAlertTemplate extends React.Component<LotteryR
             <div className={styles['cj-warn']}>
                 <div className={styles['s-line-block']}><img src={ImgNoChance} alt='' /></div>
                 <div className="s-line-block">
-                    <p>{ body }</p>
+                    <p dangerouslySetInnerHTML={{ __html: body}}></p>
                 </div>
             </div>
         );

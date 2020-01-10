@@ -4,7 +4,7 @@ import React from 'react';
 import { Provider, ConnectedComponentClass } from 'react-redux';
 import thunk from 'redux-thunk';
 
-export interface HjAction<T> extends Action {
+export interface DoraAction<T> extends Action {
     data: T;
 }
 

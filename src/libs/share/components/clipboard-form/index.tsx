@@ -11,8 +11,6 @@ export interface ClipboardFormTemplatePropsData extends ModalWidgetPropsData {
     shareUrl: string;
 }
 
-const resfileHost = 'https://res.hjfile.cn';
-
 export default class ClipboardFormTemplate 
     extends React.Component<ClipboardFormTemplatePropsData> {
 
@@ -30,9 +28,9 @@ export default class ClipboardFormTemplate
 
     componentDidMount() {
         this.isResourceLoaded = false;
-        lazyLoadScript(`${resfileHost}/classecm/clipboard.min.js`, () => {
+        lazyLoadScript(`https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js`, () => {
             this.isResourceLoaded = true;
-            this.clipboard = new window.ClipboardJS(`.${styles['hjshare-btn-copy']}`);
+            this.clipboard = new window.ClipboardJS(`.${styles['share-btn-copy']}`);
             this.clipboard.on('success', () => {
                 this.clipboard.destroy();
                 this.clipboard = null;
@@ -71,12 +69,12 @@ export default class ClipboardFormTemplate
         }
         return (
             <Modal {...props} ref={this.modalRef}>
-                <section className={styles["hjshare-list-wrapper"]}>
-                    <div className={styles["hjshare-copy-link"]}>
+                <section className={styles["share-list-wrapper"]}>
+                    <div className={styles["share-copy-link"]}>
                         <div className={styles["share-header"]}>复制一下网址，分享给以下好友</div>
                         <div className={styles["input-button-wrapper"]}>
                             <input type="text" className={styles["txt-share-url"]} value={shareUrl} readOnly />
-                            <a href="javascript:void(0);" className={styles["hjshare-btn-copy"]}
+                            <a href="javascript:void(0);" className={styles["share-btn-copy"]}
                                 data-clipboard-target={`.${styles["txt-share-url"]}`}
                                 onClick={this.onCopy}>复制</a>
                         </div>

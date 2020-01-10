@@ -1,5 +1,5 @@
 @import 'mixins.scss';
-.hjshare-list-wrapper {
+.share-list-wrapper {
     padding: fx2(18) 0;
 }
 .share-header {
@@ -38,7 +38,7 @@
      width: 100%;
      box-sizing: border-box;
  }
- .hjshare-btn-copy {
+ .share-btn-copy {
      position: absolute;
      right: fx3(19);
      top: 0;

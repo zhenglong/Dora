@@ -1,8 +1,8 @@
 import ActionTypes from './action-types';
-import {HjAction} from '../base-widget';
+import {DoraAction} from '../base-widget';
 import { AreaInfo } from './types';
 
-export function provinces(state: AreaInfo[] = [], action: HjAction<AreaInfo[]>): AreaInfo[] {
+export function provinces(state: AreaInfo[] = [], action: DoraAction<AreaInfo[]>): AreaInfo[] {
     switch (action.type) {
         case ActionTypes.UPDATE_PROVINCE_LIST:
             return action.data;
@@ -11,7 +11,7 @@ export function provinces(state: AreaInfo[] = [], action: HjAction<AreaInfo[]>):
     }
 }
 
-export function cities(state: AreaInfo[] = [], action: HjAction<AreaInfo[]>): AreaInfo[] {
+export function cities(state: AreaInfo[] = [], action: DoraAction<AreaInfo[]>): AreaInfo[] {
     switch (action.type) {
         case ActionTypes.UPDATE_CITY_LIST:
             return action.data;
@@ -20,7 +20,7 @@ export function cities(state: AreaInfo[] = [], action: HjAction<AreaInfo[]>): Ar
     }
 }
 
-export function districts(state: AreaInfo[] = [], action: HjAction<AreaInfo[]>): AreaInfo[] {
+export function districts(state: AreaInfo[] = [], action: DoraAction<AreaInfo[]>): AreaInfo[] {
     switch (action.type) {
         case ActionTypes.UPDATE_DISTRICT_LIST:
             return action.data;
@@ -29,7 +29,7 @@ export function districts(state: AreaInfo[] = [], action: HjAction<AreaInfo[]>):
     }
 }
 
-export function provinceId(state: number = 0, action: HjAction<number>): number {
+export function provinceId(state: number = 0, action: DoraAction<number>): number {
     switch (action.type) {
         case ActionTypes.UPDATE_CURRENT_PROVINCE:
             return action.data;
@@ -38,7 +38,7 @@ export function provinceId(state: number = 0, action: HjAction<number>): number 
     }
 }
 
-export function cityId(state: number = 0, action: HjAction<number>): number {
+export function cityId(state: number = 0, action: DoraAction<number>): number {
     switch (action.type) {
         case ActionTypes.UPDATE_CURRENT_CITY:
             return action.data;
@@ -47,7 +47,7 @@ export function cityId(state: number = 0, action: HjAction<number>): number {
     }
 }
 
-export function districtId(state: number = 0, action: HjAction<number>): number {
+export function districtId(state: number = 0, action: DoraAction<number>): number {
     switch (action.type) {
         case ActionTypes.UPDATE_CURRENT_DISTRICT:
             return action.data;

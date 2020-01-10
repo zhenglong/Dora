@@ -43,9 +43,9 @@ export default class Popup extends React.Component<ModalWidgetPropsData, ModalWi
         }
         let {contentPosition, children} = this.props;
         return (
-            <div className={styles["hjshare-wrap"]}>
-                <div className={styles["hjshare-mask"]} onClick={this.onClose}></div>
-                <div className={`${styles["hjshare-content"]} ${styles[positionCls[contentPosition]]}`}>
+            <div className={styles["share-wrap"]}>
+                <div className={styles["share-mask"]} onClick={this.onClose}></div>
+                <div className={`${styles["share-content"]} ${styles[positionCls[contentPosition]]}`}>
                     {children}
                 </div>
             </div>

@@ -1,14 +1,14 @@
 import axios from 'axios';
 import querystring from './querystring';
 
-export interface HjResponse {
+export interface DoraResponse {
     data?: any;
     status: number;
     message?: string;
 }
 
 export default class Ajax {
-    static get(url: string, params: object): Promise<HjResponse> {
+    static get(url: string, params: object): Promise<DoraResponse> {
         if (params) {
             let str = querystring.stringify(params);
             url = `${url}?${str}`;
@@ -25,7 +25,7 @@ export default class Ajax {
         });
     }
 
-    static post(url: string, params: object): Promise<HjResponse> {
+    static post(url: string, params: object): Promise<DoraResponse> {
         return axios.post(url, params).then(res => {
             if (res.status == 200) {
                 if (res.data && res.data.status) {

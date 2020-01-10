@@ -8,7 +8,7 @@ const ua = navigator.userAgent.toLowerCase();
 const isweixin = (ua.indexOf('micromessenger') > -1);
 
 const config = {
-    isapp: ua.indexOf('hjapp') > -1,
+    isapp: false, // APP环境检测
     isqq: ua.indexOf('qqbrowser') > -1,
     isuc: ua.indexOf('ucbrowser') > -1
 };
@@ -37,12 +37,10 @@ interface ShareInfo {
 }
 
 const utilityNotReadyMsg = '分享组件正在初始化中，请稍候';
-const hjsdkUrl = 'https://res.hjfile.cn/co/sdk/0.3.0/hjsdk.min.js';
-const hjweixinUrl = 'https://common.hjfile.cn/js/hj-weixin-2.0.js';
+const weixinUrl = 'http://res.wx.qq.com/open/js/jweixin-1.4.0.js';
 
 /**
  * 负责把环境检测以及对应静态资源加载好
- * 沪江app
  * qq浏览器
  * uc浏览器
  * 微信
@@ -176,17 +174,9 @@ export default class McShare implements StandaloneUtility {
     }
 
     initWxShare() {
-        const callback = () => {
-            let { title, description, imgUrl, link } = this.shareInfo;
-            window.wxshare.config();
-            window.wxshare.reset({
-                title,
-                desc: description,
-                link,
-                imgUrl
-            });
-        };
-        this.loadIfNot(hjweixinUrl, callback);
+        this.loadIfNot(weixinUrl, () => {
+            // TODO: 微信jsdk初始化
+        });
     }
 
     loadIfNot(url: string, callback?: () => void) {

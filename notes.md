@@ -10,10 +10,10 @@
 
 ``` html
     <div>
-        <div hjc-widget1>
-            <div slot="" hjc-widget2></div>
+        <div dora-widget1>
+            <div slot="" dora-widget2></div>
         </div>
-        <div hjc-widget3></div>
+        <div dora-widget3></div>
     </div>
 ```
 ``` javascript

@@ -1,5 +1,5 @@
 import ActionTypes from "./action-types";
-import {HjAction} from "../base-widget";
+import {DoraAction} from "../base-widget";
 import { AreaInfo } from "./types";
 
 import Ajax from '../..//mixins/ajax';
@@ -106,21 +106,21 @@ export function selectCity(id: number) {
     };
 }
 
-export function selectDistrict(id: number): HjAction<number> {
+export function selectDistrict(id: number): DoraAction<number> {
     return {
         type: ActionTypes.UPDATE_CURRENT_DISTRICT,
         data: id
     };
 }
 
-export function updateCities(data: AreaInfo[]): HjAction<AreaInfo[]> {
+export function updateCities(data: AreaInfo[]): DoraAction<AreaInfo[]> {
     return {
         type: ActionTypes.UPDATE_CITY_LIST,
         data
     };
 }
 
-export function updateDistricts(data: AreaInfo[]): HjAction<AreaInfo[]> {
+export function updateDistricts(data: AreaInfo[]): DoraAction<AreaInfo[]> {
     return {
         type: ActionTypes.UPDATE_DISTRICT_LIST,
         data

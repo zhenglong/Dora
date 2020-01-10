@@ -1,7 +1,7 @@
 import ActionTypes from './action-types';
-import {HjAction} from '../base-widget';
+import {DoraAction} from '../base-widget';
 
-export default function reducer(state: LoadingOptions, action: HjAction<LoadingOptions>): LoadingOptions {
+export default function reducer(state: LoadingOptions, action: DoraAction<LoadingOptions>): LoadingOptions {
     switch (action.type) {
         case ActionTypes.UPDATE_STATE:
             return action.data;
