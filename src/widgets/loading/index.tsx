@@ -43,7 +43,6 @@ export default class LoadingWidget
 applyMixins(LoadingWidget, [BaseWidget]);
 LoadingWidget.unref = unref<React.RefObject<LoadingWidget>, LoadingWidgetInner>();
 
-
 class LoadingWidgetInner extends React.Component<LoadingOptions, InternalStateDataModel> implements BaseUIWidget {
 
     static contextType = BaseWidget.ActionsContext;

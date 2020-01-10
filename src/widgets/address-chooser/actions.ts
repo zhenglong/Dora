@@ -37,7 +37,7 @@ function convertData(data: AreaResponseData[]): AreaInfo[] {
         items.push({
             name: '',
             id: id - indexOffset
-        })
+        });
         id--;
     }
     return items;

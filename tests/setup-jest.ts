@@ -11,4 +11,4 @@ global.dorac = {
     },
     hideLoading: () => {},
     showToast: () => {}
-}
+};
