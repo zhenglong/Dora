@@ -6,7 +6,7 @@ import Ajax from '../..//mixins/ajax';
 const API_ADDRESS = '/api/address';
 
 interface AreaResponseData {
-    area_name: string;
+    name: string;
     id: number;
 }
 
@@ -22,7 +22,7 @@ function convertData(data: AreaResponseData[]): AreaInfo[] {
     let items: AreaInfo[] = (data || []).map((item: AreaResponseData, index: number) => {
         //  默认选中第一个
         return {
-            name: item.area_name,
+            name: item.name,
             id: item.id,
             selected: !index
         };
@@ -34,6 +34,10 @@ function convertData(data: AreaResponseData[]): AreaInfo[] {
             id,
             selected: false
         });
+        items.push({
+            name: '',
+            id: id - indexOffset
+        })
         id--;
     }
     return items;
